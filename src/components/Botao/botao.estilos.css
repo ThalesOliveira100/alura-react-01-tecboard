@@ -1,0 +1,13 @@
+.botao-form {
+    padding: 1rem;
+    margin: 10px auto;
+    border-radius: 0.5rem;
+    background-color: #17DCB3;
+    width: 128px;
+    max-width: 90%;
+}
+
+.botao-form:first-child {
+    color: white;
+    font-size: 1rem;
+}
