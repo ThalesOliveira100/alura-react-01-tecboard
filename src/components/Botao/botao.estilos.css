@@ -1,13 +1,22 @@
 .botao-form {
-    padding: 1rem;
-    margin: 10px auto;
-    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #212121;
+    padding: 0.5rem 1rem;
     background-color: #17DCB3;
+    border-radius: 0.5rem;
+    border: none;
     width: 128px;
     max-width: 90%;
 }
 
-.botao-form:first-child {
-    color: white;
-    font-size: 1rem;
+.botao-form:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.acoes {
+    margin-top: 2rem;
+    text-align: center;
 }
