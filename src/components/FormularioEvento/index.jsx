@@ -6,9 +6,23 @@ import { CampoEntrada } from '../CampoEntrada'
 import { Botao } from '../Botao'
 import { ListaSuspensa } from '../ListaSuspensa'
 
-export function FormularioEvento({ temas }) {
+export function FormularioEvento({ temas, onSubmit }) {
+
+  function handleSubmit(formData){
+    const evento = {
+      capa: formData.get('capaEvento'),
+      tema: temas.find(function (item) {
+        return item.id == formData.get('temaEvento')
+      }),
+      data: new Date(formData.get('dataEvento')),
+      titulo: formData.get('nomeEvento')
+    }
+
+    onSubmit(evento)
+  }
+
   return (
-    <form className='form-evento'>
+    <form className='form-evento' action={handleSubmit}>
       <TituloFormulario>
         Preencha para criar um evento:
       </TituloFormulario>
@@ -39,7 +53,7 @@ export function FormularioEvento({ temas }) {
           <Label htmlFor="temaEvento">
             Tema do evento
           </Label>
-          <ListaSuspensa id="tema" name="tema" itens={temas} />
+          <ListaSuspensa id="temaEvento" name="temaEvento" itens={temas} />
         </CampoFormulario>
       </div>
 
