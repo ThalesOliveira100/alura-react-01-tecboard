@@ -43,17 +43,23 @@ function App() {
     }
   ])
 
+  const validarData = (data) => {
+    return data instanceof Date && !Number.isNaN(data.valueOf())
+  }
+
+  const validarEvento = (evento) => {
+    return evento.titulo!='' && evento.tema != undefined && validarData(evento.data)
+  }
+
   function adicionarEvento(evento) {
-    // eventos.push(evento)
     if (evento.capa === '') {
       evento.capa = null
     }
 
-    console.log(evento)
-    if (evento.titulo!='' && evento.tema != undefined && evento.data == {}) {
+    if (validarEvento(evento)) {
       setEventos([...eventos, evento])
     } else {
-      alert(`Atenção!\nForam informados campos vazios ou inválidos.\nVerifique os dados e tente novamente!`)
+      alert(`Atenção!\nForam informados campos vazios ou valores inválidos.\nVerifique os dados e tente novamente!`)
     }
   }
 
