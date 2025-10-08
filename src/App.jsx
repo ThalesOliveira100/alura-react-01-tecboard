@@ -45,7 +45,16 @@ function App() {
 
   function adicionarEvento(evento) {
     // eventos.push(evento)
-    setEventos([...eventos, evento])
+    if (evento.capa === '') {
+      evento.capa = null
+    }
+
+    console.log(evento)
+    if (evento.titulo!='' && evento.tema != undefined && evento.data == {}) {
+      setEventos([...eventos, evento])
+    } else {
+      alert(`Atenção!\nForam informados campos vazios ou inválidos.\nVerifique os dados e tente novamente!`)
+    }
   }
 
   return (
